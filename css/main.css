@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding:0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Freckle Face', sans-serif;
+  -webkit-box-shadow: 0px -8px 3px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -8px 3px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px -8px 3px 1px rgba(0,0,0,0.75);
+}
+
+@keyframes sunset {
+    from{transform: translateY(-100px);}
+    to{transform: translateY(200px);}
+}
+
+@keyframes sunrise {
+    from{transform: translateY(300px);}
+    to{transform: translateY(50px);}
+}
+
+@keyframes grow {
+    from{transform: scale(1.0);}
+    to{transform: scale(1.3);}
+}
+
+.sky {
+    background: linear-gradient(to bottom, #90dffe 0%,#38a3d1 100%);
+    padding: 20px;
+    height: 80%;
+    position:  relative;
+}
+
+#sky:before {
+  content:"Good Morning Jr!";
+  color: black;
+  animation: grow 4s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  transition:1s ease;
+}
+
+#sky:target {
+    background:black;
+    transition:all ease 1s;
+}
+
+#sky:target:before {
+  content:"Good Night Jr!";
+  color: #ffffff;
+  animation: grow 4s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  font-size:72px;
+}
+
+#sky:target .building li {
+    transition:all ease 2s;
+}
+
+#sky:target .building li:nth-child(2n) {
+    background-color: blue;
+    height: 500px;
+}
+
+#sky:target .building li:nth-child(2n+1) {
+    background-color: darkblue;
+    height:350px;
+}
+
+#sky:target .building li:nth-child(3n) {
+    background-color: lightblue;
+    height:250px;
+}
+#sky:target + .grass {
+  background-color:lightgreen;
+  border-top: 5px dashed darkgreen;
+  transition:all ease 1s;
+  transform:rotateX(100px);
+}
+
+#sky:target > a > .sun {
+    background-color:white;
+    transition:all ease 2s;
+    animation: sunset 4s;
+    animation-fill-mode: forwards;
+}
+
+#sky:target > a[href="#sky"] > .sun {
+    display: none;
+}
+
+#sky:target > a[href="#night"] > .sun {
+    display: block;
+}
+
+#sky > a[href="#night"] > .sun {
+   display: none;
+}
+
+#sky > a[href="#sky"] > .sun {
+   display: block;
+}
+
+.sun {
+    border-radius:50px;
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    border: 5px dashed black;
+    float:right;
+    transition:all ease 3s;
+    animation: sunrise 4s;
+    animation-fill-mode: forwards;
+    -webkit-box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+    box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+
+}
+
+.grass {
+    background-color:darkgreen;
+    border-top: 5px dashed lightgreen;
+    height: 20%;}
+
+.building {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.building li {
+    background-color: grey;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    border: 5px dashed black;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    -webkit-box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+    box-shadow: 8px -8px 3px 1px rgba(0,0,0,0.75);
+}
+
+.building li:nth-child(2n) {
+    border: 5px dashed black;
+    height: 400px;
+}
+
+.building li:nth-child(2n+1) {
+    background-color: lightgrey;
+    width: 100px;
+    height:200px;
+}
+
+.building li:nth-child(3n) {
+    background-color: darkgrey;
+    width: 100px;
+    height:350px;
+    z-index:1;
+}
+
+.building li:nth-child(1) {
+    left: 10%;
+}
+
+.building li:nth-child(2) {
+    left: 15%;
+}
+
+.building li:nth-child(3) {
+    left: 20%;
+}
+
+.building li:nth-child(4) {
+    left: 25%;
+    height: 500px;
+}
+
+.building li:nth-child(5) {
+    left: 30%;
+}
+
+.building li:nth-child(6) {
+    left: 35%;
+}
+
+.building li:nth-child(7) {
+    left: 40%;
+}
+
+.building li:nth-child(8) {
+    left: 45%;
+}
+
+.building li:nth-child(9) {
+    left: 50%;
+}
+.building li:hover {
+    border: none;
+    transition: all .2s ease;
+    z-index:2;
+}
+
+.building li:hover:before {
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  font-size: 40px;
+  justify-content: center;
+  animation: grow 1s;
+}
+.building li:nth-child(1):hover:before {
+  content: "1 One";
+  background-color:red;
+}
+
+.building li:nth-child(2):hover:before {
+  content: "2 Two";
+  background-color:orange;
+}
